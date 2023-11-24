@@ -42,39 +42,39 @@ To run this project, you need the following dependencies:
 
 You can install the required packages using the following command:
 
-```bash
-pip install -r requirements.txt
+
+`pip install -r requirements.txt`
 
 ## Clone repository
-- git clone https://github.com/Mosee007/flight-prediction-model.git
+`git clone https://github.com/Mosee007/flight-prediction-model.git`
 
 ## Navigate to the project
-- cd flight-prediction-model
+`cd flight-prediction-model`
 
 ## Run Jupyter Notebook for model training
-- Jupyter notebook fare_prediction_model.ipynb
+`Jupyter notebook fare_prediction_model.ipynb`
 
 ## Model Training
 The fare_prediction_model.ipynb Jupyter Notebook contains the code for model training. It covers:
 
-Data loading and exploration
-Data preprocessing and feature engineering
-Model selection and training
-Model evaluation and validation
+- Data loading and exploration
+- Data preprocessing and feature engineering
+- Model selection and training
+- Model evaluation and validation
 
 ## Evaluation
-The model's performance is evaluated using metrics such as Mean Absolute Error (MAE), Mean Squared Error (MSE), and R-squared. The evaluation results are discussed in the Jupyter Notebook.
+- The model's performance is evaluated using metrics such as Mean Absolute Error (MAE), Mean Squared Error (MSE), and R-squared. The evaluation results are discussed in the Jupyter Notebook.
 
 ## Results
-The trained model achieves a competitive performance in predicting flight prices. Users can input relevant details, and the model will provide an estimated flight price based on the historical patterns learned during training.
+- The trained model achieves a competitive performance in predicting flight prices. Users can input relevant details, and the model will provide an estimated flight price based on the historical patterns learned during training.
 
 ## Contributing
-If you would like to contribute to this project, please follow these steps:
+- If you would like to contribute to this project, please follow these steps:
 
-## Fork the repository.
-Create a new branch (git checkout -b feature/improvement).
-Make your changes and commit them (git commit -am 'Add feature/improvement').
-Push the changes to your branch (git push origin feature/improvement).
-Create a new pull request.
+##### Fork the repository.
+- Create a new branch (git checkout -b feature/improvement).
+- Make your changes and commit them (git commit -am 'Add feature/improvement').
+- Push the changes to your branch (git push origin feature/improvement).
+- Create a new pull request.
 
 
