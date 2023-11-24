@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Flight Price Prediction</title>
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!--css-->    
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+
+
+    <!--body-->
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">eClipse Prediction</a>
+        </div>
+        <ul>
+          <li><a href="home.html">Flights</a></li>
+          <li><a href="https://www.booking.com/index.en-gb.html?aid=1610684&label=nairobi-VIPEjI8LQEsbeu5upM4Y9AS349980555495%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-300974883504%3Alp1009824%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfqnDqqG8nt10AsofPfvtt0&sid=0c3ba3e0a82d6b8b8ec7d82968cfed63&click_from_logo=1">Hotels</a></li>
+          <li><a href="https://www.kayak.com/Kenya-Car-Rentals.128.crc.html">Car Rental</a></li>
+          <li><a href="https://yummy.co.ke/">Vacation Deals</a></li>
+          <li class="logout"><a href="/logout">Log Out</a></li>
+          
+      </nav>
+    </header>
+    <main>
+      <h1>Find cheap flight prices, book hotels and rent cars before travelling</h1>
+      <form action="\predict" method="post">
+        <div class="form-group">
+          <label for="from">From</label>
+          <select name="Source" id="Source" required="required">
+            <option value="Nairobi">Nairobi</option>
+            <option value="Naivasha">Naivasha</option>
+            <option value="Lowdar">Lowdar</option>
+            <option value="Eldoret">Eldoret</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="to">To</label>
+          <select name="Destination" id="Destination" required="required">
+            <option value="Mombasa">Mombasa</option>
+            <option value="Machakos">Machakos</option>
+            <option value="Nanyuki">Nanyuki</option>
+            <option value="Kisumu">Kisumu</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="depart-date">Date of Departure</label>
+          <input type="datetime-local" name="Dep_Time" id="Dep_Time" required="required">
+        </div>
+        <div class="form-group">
+          <label for="return-date">Date of Arrival</label>
+          <input type="datetime-local" name="Arrival_Time" id="Arrival_Time" required="required">
+        </div>
+        <div class="form-group">
+          <label for="travelers">Number of People</label>
+          <select name="stops" required="required">
+            <option value="0">1 traveler</option>
+            <option value="1">2 travelers</option>
+            <option value="2">3 travelers</option>
+            <option value="3">4 travelers</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cabin-class">Cabin Class</label>
+          <select id="cabin-class" name="cabin-class">
+            <option value="Economy">Economy</option>
+            <option value="Premium Economy">Premium Economy</option>
+            <option value="Business">Business</option>
+            <option value="First">First</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="airline">Preferred Airline</label>
+          <select id="airline" name="airline">
+            <option value="Jet Airways">Jet Airways</option>
+            <option value="Kenya Airways">Kenya Airways</option>
+            <option value="Fly540">Fly540</option>
+            <option value="Jambo Jet">Jambo Jet</option>
+            <option value="Safarilink Aviation">Safarilink Aviation</option>
+            <option value="African Express Airways">African Express Airways</option>
+            <option value="Renegaid Air">Renegaid Air</option>
+            <option value="Airlink">Airlink</option>
+            <option value="Jambo Jet Premium economy">Jambo Jet Premium economy</option>
+            <option value="AirKenya Express Business">AirKenya Express Business</option>
+            <option value="African Express Airways Premium economy">African Express Airways Premium economy</option>
+            <option value="Trujet">Trujet</option>
+          </select>
+        </div>
+        <input type="submit" value="Perdict Price" class="btn btn-secondary">
+
+      <br>
+      <br>
+      <br>
+      <h3>{{ prediction_text }}</h3>
+      <br>
+      <br>
+      </form>
+      <br>
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Stretch Your Budget</h1>
+          <p>Find the best deals for your next trip</p>
+          <button>
+            <a href="https://thekenyancamper.com/" class="guide-link">Read the Guide</a>
+          </button>
+          
+        </div>
+      </section>
+      <br>
+    <br>
+    <div class="popular-destinations">
+      <h2>Popular right now</h2>
+      <ul>
+        <li>
+          <img src="static/images/mombasa.jpg">
+          <h3>Mombasa</h3>
+          <p><a href="flights.html">Flights</a> &bull; 
+            <a href="https://www.booking.com/index.en-gb.html?aid=1610684&label=nairobi-VIPEjI8LQEsbeu5upM4Y9AS349980555495%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-300974883504%3Alp1009824%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfqnDqqG8nt10AsofPfvtt0&sid=0c3ba3e0a82d6b8b8ec7d82968cfed63&click_from_logo=1">Hotels</a> &bull; 
+            <a href="http://carhiremombasa.co.ke/">Car rentals</a></p>
+        </li>
+        <li>
+          <img src="static/images/kisumu.jpg">
+          <h3>Kisumu</h3>
+          <p><a href="flights.html">Flights</a> &bull; 
+            <a href="https://www.booking.com/index.en-gb.html?aid=1610684&label=nairobi-VIPEjI8LQEsbeu5upM4Y9AS349980555495%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-300974883504%3Alp1009824%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfqnDqqG8nt10AsofPfvtt0&sid=0c3ba3e0a82d6b8b8ec7d82968cfed63&click_from_logo=1">Hotels</a> &bull; 
+            <a href="http://carhirekisumu.co.ke/">Car rentals</a></p>
+        </li>
+        <li>
+          <img src="static/images/nairobi.jpg">
+          <h3>Nairobi</h3>
+          <p><a href="flights.html">Flights</a> &bull; 
+            <a href="https://www.booking.com/index.en-gb.html?aid=1610684&label=nairobi-VIPEjI8LQEsbeu5upM4Y9AS349980555495%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-300974883504%3Alp1009824%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfqnDqqG8nt10AsofPfvtt0&sid=0c3ba3e0a82d6b8b8ec7d82968cfed63&click_from_logo=1">Hotels</a> &bull; 
+            <a href="http://nairobicarhire.co.ke/">Car rentals</a></p>
+        </li>
+        <li>
+          <img src="static/images/nanyuki.jpg">
+          <h3>Nanyuki</h3>
+          <p><a href="flights.html">Flights</a> &bull; 
+            <a href="https://www.booking.com/index.en-gb.html?aid=1610684&label=nairobi-VIPEjI8LQEsbeu5upM4Y9AS349980555495%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-300974883504%3Alp1009824%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfqnDqqG8nt10AsofPfvtt0&sid=0c3ba3e0a82d6b8b8ec7d82968cfed63&click_from_logo=1">Hotels</a> &bull; 
+            <a href="https://www.nanyukicarhire.com/">Car rentals</a></p>
+        </li>
+        <li>
+          <img src="static/images/eldoret.webp">
+          <h3>Eldoret</h3>
+          <p><a href="flights.html">Flights</a> &bull; 
+            <a href="https://www.booking.com/index.en-gb.html?aid=1610684&label=nairobi-VIPEjI8LQEsbeu5upM4Y9AS349980555495%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-300974883504%3Alp1009824%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfqnDqqG8nt10AsofPfvtt0&sid=0c3ba3e0a82d6b8b8ec7d82968cfed63&click_from_logo=1">Hotels</a> &bull; 
+            <a href="car-rentals.html">Car rentals</a></p>
+        </li>
+        <li>
+          <img src="static/images/lowdar.jpg">
+          <h3>Lowdar</h3>
+          <p><a href="flights.html">Flights</a> &bull; 
+            <a href="https://www.booking.com/index.en-gb.html?aid=1610684&label=nairobi-VIPEjI8LQEsbeu5upM4Y9AS349980555495%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-300974883504%3Alp1009824%3Ali%3Adec%3Adm%3Appccp%3DUmFuZG9tSVYkc2RlIyh9YfqnDqqG8nt10AsofPfvtt0&sid=0c3ba3e0a82d6b8b8ec7d82968cfed63&click_from_logo=1">Hotels</a> &bull; 
+            <a href="car-rentals.html">Car rentals</a></p>
+        </li>
+        <li>
+          <img src="static/images/naivasha.jpg">
+          <h3>Naivasha</h3>
+          <p><a href="flights.html">Flights</a> &bull; 
+            <a href="hotels.html">Hotels</a> &bull; 
+            <a href="car-rentals.html">Car rentals</a></p>
+        </li>
+        <li>
+          <img src="static/images/machakos.jpg">
+          <h3>Machakos</h3>
+          <p><a href="flights.html">Flights</a> &bull; 
+            <a href="hotels.html">Hotels</a> &bull; 
+            <a href="car-rentals.html">Car rentals</a></p>
+        </li>
+        <li>
+          <img src="static/images/nakuru.jpg">
+          <h3>Nakuru</h3>
+          <p><a href="flights.html">Flights</a> &bull; 
+            <a href="hotels.html">Hotels</a> &bull; 
+            <a href="car-rentals.html">Car rentals</a></p>
+        </li>
+      </ul>
+    </div>
+    
+    <section class="compare-section">
+      <div class="container">
+        <h2>Book cheap flights, hotels and car rentals with eClipse</h2>
+        <p>Join thousands savvy travelers as you look for flights price, hotels and cars booking from hundreds of providers.</p>
+        <div class="how-section">
+          <ul>
+            <li>Search for flights prices, hotels and car rentals</li>
+            <li>Compare prices across hundreds of providers</li>
+            <li>Book directly with no added fees</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    
+      
+      
+    </main>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>
+      <p>&copy; 2023 Wafula, All Rights Reserve</p>
+      </footer>
+      
+      <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js
+
+
+
+
+
+      </body>
+      </html>
+      
+
